@@ -37,7 +37,7 @@ terminal = guess_terminal()
 keys = [
     
     # dmenu
-    Key([mod], "d", lazy.spawn("rofi -show drun")),
+    Key([mod], "d", lazy.spawn("rofi -show drun -show-icons")),
         
     # Toggle Floating Layout
     Key([mod, "control"], "t", lazy.window.toggle_floating()),
@@ -131,7 +131,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='/home/matteo/wallpaper/2.png',
+        wallpaper='/home/matteo/.config/wallpaper/2.png',
         wallpaper_mode='fill',
         top=bar.Bar(
             [
