@@ -30,6 +30,14 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import os
+import subprocess
+from libqtile import hook
+
+@hook.subscribe.startup
+def autostart():
+    home=os.path.expanduser('/home/matteo/.config/qtile/autostart.sh')
+    subprocess.call([home])
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -40,7 +48,7 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons")),
         
     # Toggle Floating Layout
-    Key([mod, "control"], "t", lazy.window.toggle_floating()),
+    Key([mod], "t", lazy.window.toggle_floating()),
 
     # Switch between windows
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -131,8 +139,6 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='/home/matteo/.config/wallpaper/2.png',
-        wallpaper_mode='fill',
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
