@@ -35,7 +35,10 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
-
+    
+    # dmenu
+    Key([mod], "d", lazy.spawn("rofi -show drun")),
+        
     # Toggle Floating Layout
     Key([mod, "control"], "t", lazy.window.toggle_floating()),
 
